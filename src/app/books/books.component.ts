@@ -16,6 +16,9 @@ export class BooksComponent implements OnInit {
   src2: string = "https://m.media-amazon.com/images/I/41HXiIojloL._AC_UY327_FMwebp_QL65_.jpg";
 
   isBookShown: boolean = true;
+  
+  currentText1: string = '';
+  currentText2: string = '';
 
   constructor() { }
 
@@ -24,5 +27,9 @@ export class BooksComponent implements OnInit {
 
   onToggleBooks(){
     this.isBookShown = !this.isBookShown;
+  }
+
+  onInput(event: any){
+    this.currentText1 = event.target.value;
   }
 }

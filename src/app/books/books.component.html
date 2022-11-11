@@ -1,6 +1,12 @@
 <h2>Programming Books List!</h2>
 <button (click)="onToggleBooks()" [disabled] = "isBookShown">Show Books</button>
 <button (click)="onToggleBooks()" [disabled] = "!isBookShown">Hide Books</button>
+
+<br />
+<span><input (input) = "onInput($any($event))"> <span>{{currentText1}}</span> </span>
+<br />
+<span><input [(ngModel)] = "currentText2"> <span>{{currentText2}}</span> </span>
+
 <ul [hidden] = "!isBookShown">
     <li>
         <img src="{{src}}" alt="{{name}}" width="100">
