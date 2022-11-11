@@ -1,13 +1,18 @@
 <h2>Programming Books List!</h2>
-<button (click)="onToggleBooks()" [disabled] = "isBookShown">Show Books</button>
-<button (click)="onToggleBooks()" [disabled] = "!isBookShown">Hide Books</button>
+<button (click)="this.isBookShown = !this.isBookShown">
+    <!--Use ng container instead of spans to only show the value without the tag in compiled HTML-->
+    <ng-container *ngIf="!this.isBookShown">Show Books</ng-container>
+    <ng-container *ngIf="this.isBookShown">Hide Books</ng-container>
+</button>
 
+<br />
 <br />
 <span><input (input) = "onInput($any($event))"> <span>{{currentText1}}</span> </span>
 <br />
+<br />
 <span><input [(ngModel)] = "currentText2"> <span>{{currentText2}}</span> </span>
 
-<ul [hidden] = "!isBookShown">
+<ul *ngIf = "isBookShown">
     <li>
         <img src="{{src}}" alt="{{name}}" width="100">
         {{ name }} by {{author}}

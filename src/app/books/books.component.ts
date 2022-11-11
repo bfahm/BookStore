@@ -25,10 +25,6 @@ export class BooksComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onToggleBooks(){
-    this.isBookShown = !this.isBookShown;
-  }
-
   onInput(event: any){
     this.currentText1 = event.target.value;
   }
