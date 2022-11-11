@@ -15,9 +15,14 @@ export class BooksComponent implements OnInit {
   author2: string = "Andy Hunt";
   src2: string = "https://m.media-amazon.com/images/I/41HXiIojloL._AC_UY327_FMwebp_QL65_.jpg";
 
+  isBookShown: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onToggleBooks(){
+    this.isBookShown = !this.isBookShown;
+  }
 }
