@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BooksService {
 
   constructor() { }
