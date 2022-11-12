@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Book{
-  name: string,
-  author: string,
-  image: string
-  price: number
-}
+import { Book } from '../models/book';
 
 @Component({
   selector: 'app-books',
@@ -13,7 +7,6 @@ interface Book{
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-
   books: Book[] = [
     {
       name: "Clean Code",
