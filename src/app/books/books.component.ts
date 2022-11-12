@@ -34,8 +34,15 @@ export class BooksComponent implements OnInit {
     },
   ]
 
+  cart: Book[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onAddToCart(event:Book) {
+    this.cart.push(event);
+    console.log(this.cart.length);
   }
 }
