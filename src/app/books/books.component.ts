@@ -4,6 +4,7 @@ interface Book{
   name: string,
   author: string,
   image: string
+  price: number
 }
 
 @Component({
@@ -18,11 +19,13 @@ export class BooksComponent implements OnInit {
       name: "Clean Code",
       author: "Robert C Martin",
       image: "https://m.media-amazon.com/images/I/41xShlnTZTL._SX376_BO1,204,203,200_.jpg",
+      price: 120
     },
     {
       name: "The Pragmatic Programmer",
       author: "Andy Hunt",
       image: "https://m.media-amazon.com/images/I/41HXiIojloL._AC_UY327_FMwebp_QL65_.jpg",
+      price: 300
     },
   ]
 

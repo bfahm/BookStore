@@ -18,6 +18,7 @@
             {{i + 1}}
             <img src="{{book.image}}" alt="{{book.name}}" width="100">
             {{ book.name }} by {{book.author}}
+            <p>{{ book.price | currency:'EGP' }}</p>
         </li>
     </ng-container>
 </ul>
