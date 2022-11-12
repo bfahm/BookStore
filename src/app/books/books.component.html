@@ -1,6 +1,12 @@
 <h2>Programming Books List!</h2>
-<ul>
+<ul class="flex flex-wrap justify-center">
     <ng-container *ngFor="let book of books; let i = index">
-       <app-book (addBookEmitter)="onAddToCart($event)" (removeBookEmitter)="onRemoveFromCart($event)" [book] = "book" [index]="i"></app-book> 
+       <app-book 
+            class="w-1/2 p-5 text-center" 
+            (addBookEmitter)="onAddToCart($event)" 
+            (removeBookEmitter)="onRemoveFromCart($event)" 
+            [book] = "book" 
+            [index]="i">
+        </app-book> 
     </ng-container>
 </ul>
