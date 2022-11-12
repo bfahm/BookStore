@@ -9,7 +9,10 @@ import { Book } from '../../models/book';
 export class BookComponent implements OnInit {
   @Input() index: number = 0;
   @Input() book: Book = {} as Book;
-  @Output() bookEmitter = new EventEmitter<Book>();
+  @Output() addBookEmitter = new EventEmitter<Book>();
+  @Output() removeBookEmitter = new EventEmitter<Book>();
+
+  isInCart = false;
 
   constructor() { }
 
@@ -17,7 +20,13 @@ export class BookComponent implements OnInit {
   }
 
   onAddToCart() {
-    this.bookEmitter.emit(this.book);
+    this.isInCart = true;
+    this.addBookEmitter.emit(this.book);
+  }
+
+  onRemoveFromCart() {
+    this.isInCart = false;
+    this.removeBookEmitter.emit(this.book);
   }
 
 }
