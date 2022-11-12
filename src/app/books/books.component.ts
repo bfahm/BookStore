@@ -27,6 +27,18 @@ export class BooksComponent implements OnInit {
       image: "https://m.media-amazon.com/images/I/41HXiIojloL._AC_UY327_FMwebp_QL65_.jpg",
       price: 300
     },
+    {
+      name: "Python Programming for Beginners",
+      author: "Cory Reed",
+      image: "https://m.media-amazon.com/images/P/B0BFV21L24.01._SCLZZZZZZZ_SX500_.jpg",
+      price: 250
+    },
+    {
+      name: "JavaScript: The Definitive Guide",
+      author: "David Flanagan",
+      image: "https://m.media-amazon.com/images/P/1491952024.01._SCLZZZZZZZ_SX500_.jpg",
+      price: 165
+    },
   ]
 
   isBookShown: boolean = true;
