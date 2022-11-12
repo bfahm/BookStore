@@ -34,17 +34,8 @@ export class BooksComponent implements OnInit {
     },
   ]
 
-  isBookShown: boolean = true;
-  
-  currentText1: string = '';
-  currentText2: string = '';
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onInput(event: any){
-    this.currentText1 = event.target.value;
   }
 }
