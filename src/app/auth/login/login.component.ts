@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginForm } from '../../models/login-form';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,8 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private readonly authService: AuthService) { }
 
-  isLoading = false;
   form: LoginForm = {
     email:  '',
     password: ''
@@ -21,27 +21,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.isLoading){
-      return;
-    }
+    this.authService.login(this.form);
+  }
 
-    this.isLoading = true;
-    
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, this.form.email, this.form.password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        alert('Wrong Email or Password');
-      }).finally(()=> {
-        this.isLoading = false;
-      });
+  isLoading(): boolean{
+    return this.authService.isLoading;
   }
 
 }
