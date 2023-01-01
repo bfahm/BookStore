@@ -18,4 +18,8 @@ export class CartService {
     this.cart = this.cart.filter(b => b.id !== book.id);
     console.log(this.cart.length);
   }
+
+  isInCart(book: Book): boolean{
+    return this.cart.find(b => b.id === book.id) != undefined;
+  }
 }

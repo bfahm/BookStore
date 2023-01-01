@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BooksComponent } from './books.component';
 import { BookComponent } from './book/book.component';
 import { BooksService } from './books.service';
+import { CartService } from '../cart/cart.service';
 
 
 
@@ -11,7 +12,7 @@ import { BooksService } from './books.service';
   imports: [
     CommonModule
   ],
-  providers: [BooksService],
+  providers: [BooksService, CartService],
   exports: [BooksComponent],
 })
 export class BooksModule { }
