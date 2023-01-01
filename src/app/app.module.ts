@@ -12,4 +12,4 @@ import { CartComponent } from './cart/cart.component';
     imports: [BrowserModule, BooksModule, AppRoutingModule, AuthModule],
     bootstrap: [AppComponent],
 })
-export class AppModule{}
+export class AppModule {}
