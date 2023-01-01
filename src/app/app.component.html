@@ -2,8 +2,11 @@
     <div>
         <a routerLink="/">Book Shop</a>
     </div>
-    <div>
+    <div *ngIf="isAuthenticated()">
         <a class="mx-4" routerLink="/cart">Cart</a>
+        <button class="mx-4" (click)="onClickLogout()" >Logout</button>
+    </div>
+    <div *ngIf="!isAuthenticated()">
         <a class="mx-4" routerLink="/login">Login</a>
         <a class="mx-4" routerLink="/register">Register</a>
     </div>

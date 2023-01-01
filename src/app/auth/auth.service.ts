@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { Router } from '@angular/router';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { LoginForm } from '../models/login-form';
 import { RegisterForm } from '../models/register-form';
 
@@ -9,8 +10,9 @@ import { RegisterForm } from '../models/register-form';
 export class AuthService {
 
   isLoading = false;
+  isAuthenticated = false;
 
-  constructor() { }
+  constructor(private readonly router: Router) { }
 
   register(form: RegisterForm){
     if(this.isLoading){
@@ -30,13 +32,14 @@ export class AuthService {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log(user);
-        alert('Success');
+        this.isAuthenticated = true;
+        this.router.navigate(['']);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error(errorCode, errorMessage);
+        this.isAuthenticated = false;
       }).finally(()=> {
         this.isLoading = false;
       });
@@ -54,15 +57,27 @@ export class AuthService {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log(user);
+        this.isAuthenticated = true;
+        this.router.navigate(['']);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+        this.isAuthenticated = false;
         alert('Wrong Email or Password');
       }).finally(()=> {
         this.isLoading = false;
       });
+  }
+
+  logout(){
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      this.isAuthenticated = false;
+        this.router.navigate(['login']);
+    }).catch((error) => {
+      console.error(error);
+    });
   }
 }
