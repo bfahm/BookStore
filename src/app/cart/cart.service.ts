@@ -15,7 +15,7 @@ export class CartService {
   }
 
   removeFromCart(book: Book){
-    this.cart = this.cart.filter(b => b !== book);
+    this.cart = this.cart.filter(b => b.id !== book.id);
     console.log(this.cart.length);
   }
 }
